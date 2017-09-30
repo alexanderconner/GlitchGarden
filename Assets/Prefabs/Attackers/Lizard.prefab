@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 95084597248061076}
   - component: {fileID: 114366434970087460}
   - component: {fileID: 61258257128839836}
+  - component: {fileID: 50077073956192686}
+  - component: {fileID: 114397951584773278}
+  - component: {fileID: 114076248505842572}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -52,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1099973532435476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 3, z: 0}
+  m_LocalPosition: {x: 9, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4555810630741208}
@@ -72,6 +75,26 @@ Transform:
   m_Father: {fileID: 4440939934144314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50077073956192686
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099973532435476}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61258257128839836
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -114,6 +137,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114076248505842572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099973532435476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e46493f3770b2344b17ef93273be9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114366434970087460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,7 +159,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213406f18373deb4a982942957919b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpeed: 0
+--- !u!114 &114397951584773278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099973532435476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2996e10307418e14b9a6ef1a50d1dc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212115248045086058
 SpriteRenderer:
   m_ObjectHideFlags: 1
