@@ -6,9 +6,11 @@ public class DefenderSpawner : MonoBehaviour {
 
 	public Camera myCamera;
 	GameObject defenderParent;
+	private StarDisplay stardisplay;
 
 	// Use this for initialization
 	void Start () {
+		stardisplay = GameObject.FindObjectOfType<StarDisplay> ();
 		defenderParent = GameObject.Find ("Defenders");
 
 		if (defenderParent == null)
@@ -16,19 +18,20 @@ public class DefenderSpawner : MonoBehaviour {
 			defenderParent = new GameObject("Defenders");
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void OnMouseDown() {
 		Vector2 rawPos = CalculateWorldPointOfMouseClick ();
 		Vector2 roundedPos = SnapToGrid(rawPos);
-		//Create the bugger
-
-		GameObject newDefender = Instantiate (Button.selectedGameObject, roundedPos, Quaternion.identity);
-		newDefender.transform.parent = defenderParent.transform;
+		//Find selected guy
+		GameObject defender = Button.selectedGameObject;
+		int defenderCost = defender.GetComponent<Defenders> ().starCost;
+		//Check stars and Create the bugger under parent gameobject Defenders
+		if (stardisplay.UseStars (defenderCost) == StarDisplay.Status.SUCCESS) {
+			GameObject newDefender = Instantiate (defender, roundedPos, Quaternion.identity);
+			newDefender.transform.parent = defenderParent.transform;
+		} else {
+			Debug.Log ("Insufficient stars to spawn");
+		}
 	}
 
 	Vector2 CalculateWorldPointOfMouseClick()
